@@ -111,3 +111,13 @@ FROM films f
 INNER JOIN film_actors fa ON f.film_id = fa.film_id
 INNER JOIN actors a ON fa.actor_id = a.actor_id
 ORDER BY f.film_id;
+
+
+postgres-db=# INSERT INTO films (title, release_date, price, rating, user_rating) VALUES ('Mystical Adventures', '2023-05-05', 13.99, 'PG', 4.4);
+
+postgres-db=# SELECT f.title, a.actor_name
+FROM films f
+LEFT JOIN film_actors fa ON f.film_id = fa.film_id
+LEFT JOIN actors a ON fa.actor_id = a.actor_id;
+
+postgres-db=# INSERT INTO actors (actor_name) VALUES ('Jane Doe'), ('John Smith');
